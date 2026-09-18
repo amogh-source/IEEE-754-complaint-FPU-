@@ -63,35 +63,9 @@ The design was synthesized using **Cadence Genus Synthesis Solution 20.11-s111_1
 
 ---
 
----
-
-## Architecture Diagram
-
-```text
-               +-------------------------------------------------------+
-               |                       fpu_alu                         |
-               |                                                       |
-               |  +------------+     +---------------+     +---------+ |
-a [31:0]   --->|->|            |---->| a_out  [31:0] |---->|         | |
-b [31:0]   --->|->|   ip_reg   |---->| b_out  [31:0] |---->| fpu_alu | |
-opcode [7:0]->|->| (Input Reg)|---->| opcode [7:0]  |---->|   top   | |---> y_in  ---> +---------+
-clk, reset ---->|->|            |     +---------------+     | (Core)  | |---> flag_in ---> | op_reg  |---> y [31:0]
-               |  +------------+                           +---------+ |                  | (Output |---> flag [6:0]
-               |                                                       |                  |  Reg)   |
-               +-------------------------------------------------------+                  +---------+
-```
-
----
-
 ## Simulation & Verification
 
 The project includes a comprehensive Verilog testbench (`fpu_alu_tb.v`) designed for NCVerilog. It validates:
 1. Single-precision addition ($5.0 + 5.0$, $5.25 + 0.75$, $500.25 + 499.75$).
 2. Floating-point comparison operations (`==`, `!=`, `>`).
 3. Corner cases including $+ \infty$, $-\infty$, zero values, and signed comparisons.
-syn_opt
-
-# Generate Reports
-report_area > area_report.txt
-report_gates > gates_report.txt
-```
