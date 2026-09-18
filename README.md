@@ -89,35 +89,6 @@ The project includes a comprehensive Verilog testbench (`fpu_alu_tb.v`) designed
 1. Single-precision addition ($5.0 + 5.0$, $5.25 + 0.75$, $500.25 + 499.75$).
 2. Floating-point comparison operations (`==`, `!=`, `>`).
 3. Corner cases including $+ \infty$, $-\infty$, zero values, and signed comparisons.
-
-### Running Simulation (NCVerilog / Cadence xrun)
-
-```bash
-ncverilog fpu_alu.v fpu_alu_tb.v +access+r
-```
-
----
-
-## Synthesis Commands (Cadence Genus)
-
-To synthesize the design using Genus and the SAED 90nm library:
-
-```tcl
-# Read Technology Library
-set_attribute library saed90nm_typ.lib
-
-# Read HDL Source
-read_hdl fpu_alu.v
-
-# Elaborate Top Module
-elaborate fpu_alu
-
-# Apply Constraints
-read_sdc constraints.sdc
-
-# Synthesize
-syn_generic
-syn_map
 syn_opt
 
 # Generate Reports
