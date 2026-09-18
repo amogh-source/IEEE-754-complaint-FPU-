@@ -63,16 +63,6 @@ The design was synthesized using **Cadence Genus Synthesis Solution 20.11-s111_1
 
 ---
 
-## File Structure
-
-```text
-.
-├── fpu_alu.v          # Verilog HDL source file containing top-level wrapper, core logic, and sub-modules
-├── fpu_alu_tb.v       # Testbench for verifying addition, equality, inequality, and comparison logic
-├── constraints.sdc    # SDC constraint file used for synthesis
-└── README.md          # Project documentation
-```
-
 ---
 
 ## Architecture Diagram
